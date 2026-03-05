@@ -51,7 +51,7 @@ body{font-family:'Inter',sans-serif;color:#1a1a2e;line-height:1.6;background:#ff
 .footer{background:#0a1628;color:rgba(255,255,255,0.7);text-align:center;padding:30px 20px;font-size:0.85rem}
 .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#38a169;padding:12px;text-align:center;z-index:999;box-shadow:0 -4px 15px rgba(0,0,0,0.2);display:none}
 .sticky-cta a{color:#fff;text-decoration:none;font-weight:700;font-size:1rem}
-.zalo-float{position:fixed;bottom:80px;right:20px;background:#0068ff;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;text-decoration:none;box-shadow:0 4px 15px rgba(0,104,255,0.4);z-index:999}
+".zalo-float{position:fixed;bottom:80px;right:20px;background:#0068ff;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;text-decoration:none;box-shadow:0 4px 15px rgba(0,104,255,0.4);z-index:999;animation:pulse 2s infinite}"
 .success-msg{display:none;background:#38a169;color:#fff;padding:20px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1rem}
 @media(max-width:600px){.hero{padding:40px 16px 30px}.section{padding:30px 16px}.features{grid-template-columns:1fr}}
 </style>
@@ -145,7 +145,9 @@ body{font-family:'Inter',sans-serif;color:#1a1a2e;line-height:1.6;background:#ff
 
 <div class="form-section" id="dang-ky">
   <h2>📞 Nhận Bảng Giá & Ưu Đãi GĐ2</h2>
-  <p class="sub">Để lại số điện thoại — Chuyên viên sẽ GỌI LẠI tư vấn miễn phí trong 5 phút</p>
+  <p class="sub">Để lại số điện thoại — Chuyên viên sẽ <strong>GỌI LẠI</strong> tư vấn miễn phí trong 5 phút</p>
+  <a href="https://zalo.me/0878349899" target="_blank" style="display:inline-block;background:#0068ff;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;margin-bottom:20px;">💬 Chat Zalo Ngay — 0878 349 899</a>
+  <p style="opacity:0.7;margin-bottom:16px;font-size:0.9rem">— hoặc điền form để được gọi lại —</p>
   <form class="lead-form" id="leadForm" onsubmit="return submitLead(event)">
     <input type="text" name="name" placeholder="Họ và tên *" required>
     <input type="tel" name="phone" placeholder="Số điện thoại *" required pattern="[0-9]{9,11}">
@@ -181,7 +183,7 @@ body{font-family:'Inter',sans-serif;color:#1a1a2e;line-height:1.6;background:#ff
   <p style="margin-top:10px;opacity:0.6">© 2026 DKRA. Thông tin tham khảo, không phải cam kết pháp lý.</p>
 </div>
 
-<a href="https://zalo.me/0878349899" class="zalo-float" target="_blank">Zalo</a>
+<a href="https://zalo.me/0878349899" class="zalo-float" target="_blank" title="Chat Zalo ngay">💬</a>
 
 <div class="sticky-cta" id="stickyCta">
   <a href="#dang-ky">📞 NHẬN BẢNG GIÁ NGAY — Ưu Đãi GĐ2 Có Hạn!</a>
@@ -193,9 +195,6 @@ window.addEventListener('scroll', function() {
   document.getElementById('stickyCta').style.display = window.scrollY > 400 ? 'block' : 'none';
 });
 
-// FORM_WORKER_URL will be set after deploying Cloudflare Worker
-const FORM_WORKER_URL = 'WORKER_URL_HERE';
-
 async function submitLead(e) {
   e.preventDefault();
   const form = e.target;
@@ -204,26 +203,25 @@ async function submitLead(e) {
   btn.disabled = true;
 
   const data = new FormData(form);
-  const payload = {
-    name: data.get('name'),
-    phone: data.get('phone'),
-    email: data.get('email') || '',
-    interest: data.get('interest') || ''
-  };
+  const name = data.get('name');
+  const phone = data.get('phone');
+  const email = data.get('email') || '';
+  const interest = data.get('interest') || '';
 
+  const iMap = {'an-cu':'🏠 An cư','dau-tu':'📈 Đầu tư','kinh-doanh':'🏪 Shophouse','tim-hieu':'🔍 Tìm hiểu'};
+  const msg = `🔔 *LEAD — Hiệp Phước Premia*\n\n👤 ${name}\n📞 \`${phone}\`\n📧 ${email||'N/A'}\n🎯 ${iMap[interest]||'❓'}\n⏰ ${new Date().toLocaleString('vi-VN')}`;
+
+  // Send to Telegram group topic
   try {
-    await fetch(FORM_WORKER_URL, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(payload)
+    await fetch('https://api.telegram.org/bot8208788961:AAGrjJ1vYdNOzpWQUwojV6p0s3uiVGX2qrY/sendMessage', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({chat_id:'-1003539066567', message_thread_id:5270, text:msg, parse_mode:'Markdown'})
     });
-  } catch(err) {
-    console.error('Submit failed', err);
-  }
+  } catch(err){ console.error(err); }
 
   // Backup in localStorage
-  const leads = JSON.parse(localStorage.getItem('hpp_leads') || '[]');
-  leads.push({...payload, time: new Date().toISOString()});
+  const leads = JSON.parse(localStorage.getItem('hpp_leads')||'[]');
+  leads.push({name,phone,email,interest,time:new Date().toISOString()});
   localStorage.setItem('hpp_leads', JSON.stringify(leads));
 
   form.style.display = 'none';
