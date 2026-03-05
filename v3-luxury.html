@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiệp Phước Premia — Kiệt Tác Đô Thị Ven Sông</title>
+<meta name="description" content="Hiệp Phước Premia — 50ha khu đô thị sinh thái ven sông Soài Rạp. Sổ đỏ riêng, bến du thuyền, công viên 10,000m².">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#C9A96E;--dark:#0D0D0D;--cream:#FAF8F5;--text:#333}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:var(--dark);font-weight:300}
+
+.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://premia.vn/wp-content/uploads/2025/12/hiep-phuoc-premia-long-an.jpg') center/cover;filter:brightness(0.35)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%)}
+.hero-inner{position:relative;z-index:1;color:#fff;max-width:700px;padding:0 20px}
+.hero-inner .line{width:60px;height:1px;background:var(--gold);margin:0 auto 24px}
+.hero-inner .pre{font-size:0.75rem;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.hero-inner h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,7vw,4.5rem);font-weight:400;line-height:1.1;margin-bottom:20px;letter-spacing:2px}
+.hero-inner .sub{font-size:1rem;font-weight:300;opacity:0.8;margin-bottom:36px;line-height:1.8}
+.btn-gold{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:16px 48px;font-size:0.8rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.4s}
+.btn-gold:hover{background:var(--gold);color:var(--dark)}
+.btn-gold-solid{background:var(--gold);color:var(--dark);border:1px solid var(--gold);padding:16px 48px;font-size:0.8rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.4s}
+.btn-gold-solid:hover{background:transparent;color:var(--gold)}
+
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:1;color:var(--gold);font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;animation:float 2s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+
+/* Sections */
+.section-dark{background:var(--dark);color:#fff;padding:80px 20px}
+.section-cream{background:var(--cream);color:var(--text);padding:80px 20px}
+.container{max-width:900px;margin:0 auto}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;text-align:center;margin-bottom:8px;letter-spacing:2px}
+.stitle.light{color:#fff}
+.ssub{text-align:center;font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:40px}
+.gold-line{width:40px;height:1px;background:var(--gold);margin:16px auto 30px}
+
+/* USP */
+.usp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.usp h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;margin:12px 0 8px}
+.usp .num{font-size:2.5rem;color:var(--gold);font-weight:300}
+.usp p{font-size:0.85rem;opacity:0.7;line-height:1.6}
+
+/* Location */
+.loc-items{display:flex;flex-direction:column;gap:16px;max-width:600px;margin:0 auto}
+.loc-item{display:flex;align-items:center;gap:20px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.08)}
+.loc-item .t{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);min-width:80px;text-align:right;font-weight:600}
+.loc-item .u{font-size:0.65rem;color:#999;display:block;font-family:'Montserrat',sans-serif}
+.loc-item .d{font-size:0.9rem;font-weight:500}
+
+/* Amenities */
+.amen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.amen{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid rgba(255,255,255,0.1);border-radius:4px}
+.amen .ico{font-size:1.8rem;min-width:40px}
+.amen h4{font-size:0.95rem;font-weight:500;margin-bottom:4px}
+.amen p{font-size:0.8rem;opacity:0.6}
+
+/* Form */
+.form-section{background:linear-gradient(135deg,#0D0D0D,#1a1a1a);padding:80px 20px;text-align:center;color:#fff}
+.form-wrap{max-width:450px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.form-wrap input,.form-wrap select{padding:16px 20px;border:1px solid rgba(201,169,110,0.3);background:transparent;color:#fff;font-size:0.9rem;font-family:'Montserrat',sans-serif;letter-spacing:1px}
+.form-wrap input::placeholder{color:rgba(255,255,255,0.4)}
+.form-wrap input:focus{outline:none;border-color:var(--gold)}
+.form-wrap select option{color:#333;background:#fff}
+.form-wrap button{background:var(--gold);color:var(--dark);border:none;padding:18px;font-size:0.8rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s}
+.form-wrap button:hover{background:#b89560}
+.zalo-link{display:inline-block;color:var(--gold);border:1px solid var(--gold);padding:10px 24px;text-decoration:none;font-size:0.8rem;letter-spacing:2px;margin-bottom:24px;transition:all 0.3s}
+.zalo-link:hover{background:var(--gold);color:var(--dark)}
+.trust-min{margin-top:20px;font-size:0.7rem;opacity:0.4;letter-spacing:2px;text-transform:uppercase}
+.success-msg{display:none;border:1px solid var(--gold);color:var(--gold);padding:20px;font-size:1rem;font-weight:500;letter-spacing:2px}
+
+.footer{background:var(--dark);border-top:1px solid rgba(201,169,110,0.2);color:rgba(255,255,255,0.4);text-align:center;padding:30px 20px;font-size:0.75rem;letter-spacing:1px}
+.footer strong{color:var(--gold)}
+
+.zalo-float{position:fixed;bottom:20px;right:20px;background:var(--gold);color:var(--dark);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;text-decoration:none;box-shadow:0 4px 20px rgba(201,169,110,0.3);z-index:999}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--gold);padding:10px;text-align:center;z-index:998;display:none}
+.sticky-bar a{color:var(--dark);font-weight:600;text-decoration:none;font-size:0.8rem;letter-spacing:3px;text-transform:uppercase}
+
+@media(max-width:768px){
+  .usp-grid{grid-template-columns:1fr;gap:30px}
+  .amen-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="pre">Khu Đô Thị Sinh Thái Ven Sông</div>
+    <div class="line"></div>
+    <h1>Hiệp Phước Premia</h1>
+    <p class="sub">Kiệt tác đô thị 50 hecta bên dòng sông Soài Rạp<br>Nhất Cận Thị · Nhị Cận Giang · Tam Cận Lộ</p>
+    <a href="#dang-ky" class="btn-gold">Khám Phá</a>
+  </div>
+  <div class="scroll-hint">↓ cuộn xuống</div>
+</div>
+
+<div class="section-dark">
+  <div class="container">
+    <div class="ssub">Giá Trị Vượt Trội</div>
+    <div class="stitle light">Con Số Ấn Tượng</div>
+    <div class="gold-line"></div>
+    <div class="usp-grid">
+      <div class="usp"><div class="num">50ha</div><h4>Quy Mô Đô Thị</h4><p>Mật độ xây dựng thấp 30%, ưu tiên không gian xanh</p></div>
+      <div class="usp"><div class="num">1km+</div><h4>Mặt Tiền Sông</h4><p>Trải dài bên sông Soài Rạp — view thượng lưu</p></div>
+      <div class="usp"><div class="num">Sổ Đỏ</div><h4>Pháp Lý Hoàn Chỉnh</h4><p>Sổ đỏ riêng từng nền, ngân hàng hỗ trợ vay 70%</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-cream">
+  <div class="container">
+    <div class="ssub">Kết Nối Đa Chiều</div>
+    <div class="stitle">Vị Trí Đắc Địa</div>
+    <div class="gold-line"></div>
+    <div class="loc-items">
+      <div class="loc-item"><div class="t">5<span class="u">phút</span></div><div class="d">KCN & Cảng Quốc tế Hiệp Phước</div></div>
+      <div class="loc-item"><div class="t">18<span class="u">phút</span></div><div class="d">Phú Mỹ Hưng, Quận 7</div></div>
+      <div class="loc-item"><div class="t">25<span class="u">phút</span></div><div class="d">Trung tâm Quận 1, TP.HCM</div></div>
+      <div class="loc-item"><div class="t">1<span class="u">rạch</span></div><div class="d">Nhà Bè — giá chỉ 1/3 đến 1/2</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-dark">
+  <div class="container">
+    <div class="ssub">Trải Nghiệm Sống</div>
+    <div class="stitle light">Tiện Ích Đẳng Cấp</div>
+    <div class="gold-line"></div>
+    <div class="amen-grid">
+      <div class="amen"><div class="ico">🏞️</div><div><h4>Công Viên Ven Sông</h4><p>10,000m² — lá phổi xanh với đường dạo bộ</p></div></div>
+      <div class="amen"><div class="ico">🛥️</div><div><h4>Bến Du Thuyền</h4><p>Lifestyle thượng lưu ven sông Soài Rạp</p></div></div>
+      <div class="amen"><div class="ico">🏫</div><div><h4>Trường Quốc Tế AIS</h4><p>5-10 phút di chuyển</p></div></div>
+      <div class="amen"><div class="ico">🛒</div><div><h4>Shophouse Thương Mại</h4><p>Café, nhà hàng nội khu</p></div></div>
+      <div class="amen"><div class="ico">🏋️</div><div><h4>Gym & Thể Thao</h4><p>Sân tập đa năng hiện đại</p></div></div>
+      <div class="amen"><div class="ico">🔒</div><div><h4>An Ninh 24/7</h4><p>Camera toàn khu, cổng bảo vệ đa lớp</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="form-section" id="dang-ky">
+  <div class="ssub">Đăng Ký Tư Vấn</div>
+  <div class="stitle light">Nhận Bảng Giá Ưu Đãi</div>
+  <div class="gold-line"></div>
+  <p style="opacity:0.6;margin-bottom:24px;font-size:0.9rem">Để lại số điện thoại — Chuyên viên sẽ gọi lại trong 5 phút</p>
+  <a href="https://zalo.me/0878349899" class="zalo-link" target="_blank">💬 Chat Zalo — 0878 349 899</a>
+  <form class="form-wrap" id="leadForm" onsubmit="return submitLead(event)">
+    <input type="text" name="name" placeholder="Họ và tên" required>
+    <input type="tel" name="phone" placeholder="Số điện thoại" required pattern="[0-9]{9,11}">
+    <input type="email" name="email" placeholder="Email (không bắt buộc)">
+    <select name="interest"><option value="">— Quan tâm —</option><option value="an-cu">An cư</option><option value="dau-tu">Đầu tư</option><option value="kinh-doanh">Shophouse</option><option value="tim-hieu">Tìm hiểu</option></select>
+    <button type="submit">Gửi Thông Tin</button>
+  </form>
+  <div class="success-msg" id="successMsg">✅ Cảm ơn — Chuyên viên sẽ liên hệ trong 5 phút</div>
+  <div class="trust-min">Bảo mật · Miễn phí · Không spam</div>
+</div>
+
+<div class="footer">
+  <p><strong>Hiệp Phước Premia</strong> — CĐT Hai Thành Group</p>
+  <p>Mặt tiền Nguyễn Văn Tạo nối dài · Cần Giuộc · Long An</p>
+  <p style="margin-top:8px">© 2026</p>
+</div>
+
+<a href="https://zalo.me/0878349899" class="zalo-float" target="_blank">💬</a>
+<div class="sticky-bar" id="stickyCta"><a href="#dang-ky">Nhận Bảng Giá Ưu Đãi →</a></div>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('stickyCta').style.display=window.scrollY>600?'block':'none'});
+async function submitLead(e){
+  e.preventDefault();const f=e.target,b=f.querySelector('button');b.textContent='Đang gửi...';b.disabled=true;
+  const d=new FormData(f),name=d.get('name'),phone=d.get('phone'),email=d.get('email')||'',interest=d.get('interest')||'';
+  const iMap={'an-cu':'🏠 An cư','dau-tu':'📈 Đầu tư','kinh-doanh':'🏪 Shophouse','tim-hieu':'🔍 Tìm hiểu'};
+  const msg=`🔔 *LEAD — Hiệp Phước Premia*\n\n👤 ${name}\n📞 \`${phone}\`\n📧 ${email||'N/A'}\n🎯 ${iMap[interest]||'❓'}\n⏰ ${new Date().toLocaleString('vi-VN')}\n🌐 v3-luxury`;
+  try{await fetch('https://api.telegram.org/bot8689375664:AAGENJ6a_Z9q0VJP7a9QVXSwdeJxE6Y2GDw/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'-1003539066567',message_thread_id:5270,text:msg,parse_mode:'Markdown'})})}catch(err){}
+  const leads=JSON.parse(localStorage.getItem('hpp_leads')||'[]');leads.push({name,phone,email,interest,time:new Date().toISOString(),src:'v3'});localStorage.setItem('hpp_leads',JSON.stringify(leads));
+  f.style.display='none';document.getElementById('successMsg').style.display='block';return false;
+}
+</script>
+</body>
+</html>

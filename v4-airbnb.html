@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiệp Phước Premia — Khám Phá Đô Thị Ven Sông 50ha</title>
+<meta name="description" content="Khám phá Hiệp Phước Premia — khu đô thị sinh thái 50ha ven sông Soài Rạp. Đất nền sổ đỏ giáp Nhà Bè.">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--coral:#FF385C;--dark:#222;--gray:#717171;--light:#F7F7F7;--border:#DDDDDD}
+body{font-family:'Nunito',sans-serif;color:var(--dark);background:#fff}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;background:#fff;z-index:100;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.nav .logo{font-size:1.2rem;font-weight:800;color:var(--coral)}
+.nav .cta-nav{background:var(--coral);color:#fff;padding:8px 20px;border-radius:8px;font-weight:700;font-size:0.85rem;text-decoration:none;border:none;cursor:pointer}
+
+/* Hero - Image gallery style */
+.hero{margin-top:56px;padding:24px;max-width:1100px;margin-left:auto;margin-right:auto}
+.hero-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:8px;border-radius:16px;overflow:hidden}
+.hero-grid img,.hero-grid .img{object-fit:cover;width:100%;height:100%;background:center/cover}
+.hero-grid .main{grid-row:span 2}
+.img-1{background-image:url('https://premia.vn/wp-content/uploads/2025/12/hiep-phuoc-premia-long-an.jpg')}
+.img-2{background-image:url('https://city.com.vn/wp-content/uploads/2025/11/du-an-hiep-phuoc-premia-2-scaled.jpg')}
+.img-3{background-image:url('https://city.com.vn/wp-content/uploads/2025/11/hiep-phuoc-premia-4-scaled.jpg')}
+.img-4{background-image:url('https://city.com.vn/wp-content/uploads/2025/11/hiep-phuoc-premia-87.jpg')}
+
+/* Listing header */
+.listing{max-width:1100px;margin:0 auto;padding:24px;display:grid;grid-template-columns:1fr 380px;gap:48px}
+.listing-main h1{font-size:1.6rem;font-weight:800;margin-bottom:4px}
+.listing-main .meta{color:var(--gray);font-size:0.9rem;margin-bottom:16px}
+.listing-main .meta span{margin-right:12px}
+.listing-main .rating{color:var(--coral);font-weight:700}
+
+/* Host badge */
+.host{display:flex;align-items:center;gap:12px;padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:16px 0}
+.host-avatar{width:48px;height:48px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800}
+.host-info{font-size:0.9rem}
+.host-info strong{display:block;font-size:1rem}
+
+/* Highlights */
+.highlights{padding:16px 0;border-bottom:1px solid var(--border)}
+.hl{display:flex;gap:14px;align-items:flex-start;padding:12px 0}
+.hl .ico{font-size:1.5rem;min-width:32px;text-align:center}
+.hl h4{font-size:0.95rem;font-weight:700;margin-bottom:2px}
+.hl p{font-size:0.85rem;color:var(--gray)}
+
+/* Description */
+.desc{padding:20px 0;border-bottom:1px solid var(--border);font-size:0.95rem;line-height:1.8;color:#484848}
+
+/* Amenities */
+.amenities{padding:20px 0;border-bottom:1px solid var(--border)}
+.amenities h2{font-size:1.3rem;font-weight:800;margin-bottom:16px}
+.amen-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.amen-item{display:flex;align-items:center;gap:10px;font-size:0.9rem;padding:8px 0}
+.amen-item .ico{font-size:1.2rem}
+
+/* Location */
+.location{padding:20px 0}
+.location h2{font-size:1.3rem;font-weight:800;margin-bottom:16px}
+.loc-tags{display:flex;flex-wrap:wrap;gap:8px}
+.loc-tag{background:var(--light);border:1px solid var(--border);border-radius:20px;padding:8px 16px;font-size:0.85rem;font-weight:600}
+.loc-tag .t{color:var(--coral);font-weight:800}
+
+/* Sidebar card */
+.sidebar-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px;box-shadow:0 6px 16px rgba(0,0,0,0.12);position:sticky;top:80px}
+.sidebar-card .price{font-size:0.85rem;color:var(--gray);margin-bottom:4px}
+.sidebar-card .price strong{font-size:1.4rem;color:var(--dark)}
+.sidebar-card .highlights-mini{display:flex;gap:12px;margin:16px 0;font-size:0.8rem;color:var(--gray)}
+.sidebar-card .highlights-mini span{background:var(--light);padding:6px 10px;border-radius:6px}
+.card-form{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.card-form input,.card-form select{padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:'Nunito',sans-serif}
+.card-form input:focus{outline:none;border-color:var(--coral)}
+.card-form select option{color:var(--dark)}
+.btn-coral{background:linear-gradient(to right,#E61E4D,#D70466);color:#fff;border:none;padding:14px;border-radius:8px;font-size:1rem;font-weight:800;cursor:pointer;width:100%;transition:all 0.3s;margin-top:4px}
+.btn-coral:hover{opacity:0.9;transform:scale(1.01)}
+.card-note{text-align:center;font-size:0.8rem;color:var(--gray);margin-top:8px}
+.zalo-btn{display:block;background:#0068ff;color:#fff;text-align:center;padding:12px;border-radius:8px;font-weight:700;text-decoration:none;margin-top:8px;font-size:0.9rem}
+.success-msg{display:none;background:#00A699;color:#fff;padding:16px;border-radius:8px;font-weight:700;text-align:center;margin-top:8px}
+
+/* Footer */
+.footer{max-width:1100px;margin:0 auto;padding:24px;border-top:1px solid var(--border);text-align:center;font-size:0.8rem;color:var(--gray)}
+
+/* Floating */
+.zalo-float{position:fixed;bottom:20px;right:20px;background:#0068ff;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;text-decoration:none;box-shadow:0 4px 12px rgba(0,104,255,0.3);z-index:99}
+
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr;grid-template-rows:250px}
+  .hero-grid .main{grid-row:span 1}
+  .hero-grid .img:not(.main){display:none}
+  .listing{grid-template-columns:1fr;gap:24px}
+  .sidebar-card{position:static;margin-top:0}
+  .amen-list{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">🏡 Premia</div>
+  <a href="#dang-ky" class="cta-nav">Nhận Bảng Giá</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-grid">
+    <div class="img img-1 main"></div>
+    <div class="img img-2"></div>
+    <div class="img img-3"></div>
+  </div>
+</div>
+
+<div class="listing">
+  <div class="listing-main">
+    <h1>Khu Đô Thị Sinh Thái Hiệp Phước Premia</h1>
+    <div class="meta">
+      <span class="rating">★ 4.9</span>
+      <span>Cần Giuộc, Long An</span>
+      <span>·</span>
+      <span>Giáp Nhà Bè, TP.HCM</span>
+      <span>·</span>
+      <span>50 hecta</span>
+    </div>
+
+    <div class="host">
+      <div class="host-avatar">HT</div>
+      <div class="host-info">
+        <strong>Phát triển bởi Hai Thành Group</strong>
+        Saigon Village · Harbour View GĐ1 · The 826 EC
+      </div>
+    </div>
+
+    <div class="highlights">
+      <div class="hl">
+        <div class="ico">📜</div>
+        <div><h4>Sổ đỏ riêng từng nền</h4><p>Pháp lý hoàn chỉnh, minh bạch — sở hữu vĩnh viễn</p></div>
+      </div>
+      <div class="hl">
+        <div class="ico">🌊</div>
+        <div><h4>1km+ mặt tiền sông Soài Rạp</h4><p>View sông thượng lưu, không gian sinh thái mát mẻ quanh năm</p></div>
+      </div>
+      <div class="hl">
+        <div class="ico">🏙️</div>
+        <div><h4>Giáp ranh Nhà Bè (TP.HCM)</h4><p>Chỉ cách 1 con rạch — giá chỉ bằng 1/3 đến 1/2 Nhà Bè</p></div>
+      </div>
+      <div class="hl">
+        <div class="ico">🛣️</div>
+        <div><h4>Đón đầu hạ tầng tỷ đô</h4><p>Vành Đai 4 + Cao tốc Bến Lức – Long Thành hoàn thành 2025-2026</p></div>
+      </div>
+    </div>
+
+    <div class="desc">
+      <p>Hiệp Phước Premia tọa lạc tại mặt tiền đường Nguyễn Văn Tạo nối dài (lộ giới 60m), sở hữu địa thế "kép" đắt giá: một mặt giáp trục đường huyết mạch, một mặt trải dài hơn 1km bên dòng sông Soài Rạp.</p>
+      <br>
+      <p>Với mật độ xây dựng thấp chỉ 30%, chủ đầu tư dành phần lớn diện tích cho công viên, tiện ích và không gian xanh — kiến tạo nên lối sống "Nhất Cận Thị – Nhị Cận Giang – Tam Cận Lộ" hiếm có tại cửa ngõ Nam Sài Gòn.</p>
+      <br>
+      <p>Dự báo tăng giá 20-30% khi hạ tầng Vành Đai 4 và Cao tốc Bến Lức – Long Thành hoàn thiện.</p>
+    </div>
+
+    <div class="amenities">
+      <h2>Tiện ích nổi bật</h2>
+      <div class="amen-list">
+        <div class="amen-item"><span class="ico">🏞️</span>Công viên ven sông 10,000m²</div>
+        <div class="amen-item"><span class="ico">🛥️</span>Bến du thuyền</div>
+        <div class="amen-item"><span class="ico">🏋️</span>Gym & khu thể thao đa năng</div>
+        <div class="amen-item"><span class="ico">🌳</span>Vườn BBQ gia đình</div>
+        <div class="amen-item"><span class="ico">🛒</span>Shophouse thương mại</div>
+        <div class="amen-item"><span class="ico">🏫</span>Trường quốc tế AIS (5-10 phút)</div>
+        <div class="amen-item"><span class="ico">🎡</span>Khu vui chơi Kotobuki</div>
+        <div class="amen-item"><span class="ico">🔒</span>An ninh 24/7 — camera toàn khu</div>
+      </div>
+    </div>
+
+    <div class="location">
+      <h2>Kết nối giao thông</h2>
+      <div class="loc-tags">
+        <div class="loc-tag"><span class="t">5'</span> KCN Hiệp Phước</div>
+        <div class="loc-tag"><span class="t">18'</span> Phú Mỹ Hưng Q7</div>
+        <div class="loc-tag"><span class="t">25'</span> Quận 1</div>
+        <div class="loc-tag"><span class="t">5'</span> Cao tốc BL-LT</div>
+        <div class="loc-tag"><span class="t">30'</span> Quận 2</div>
+        <div class="loc-tag"><span class="t">1 rạch</span> Nhà Bè HCM</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar" id="dang-ky">
+    <div class="sidebar-card">
+      <div class="price">Đất nền sổ đỏ từ <strong>liên hệ</strong> /nền</div>
+      <div class="highlights-mini">
+        <span>📜 Sổ đỏ riêng</span>
+        <span>💰 Vay 70%</span>
+        <span>📅 Giãn 24th</span>
+      </div>
+      <a href="https://zalo.me/0878349899" class="zalo-btn" target="_blank">💬 Chat Zalo — 0878 349 899</a>
+      <p style="text-align:center;font-size:0.8rem;color:#999;margin:8px 0">— hoặc để lại SĐT —</p>
+      <form class="card-form" id="leadForm" onsubmit="return submitLead(event)">
+        <input type="text" name="name" placeholder="Họ và tên" required>
+        <input type="tel" name="phone" placeholder="Số điện thoại" required pattern="[0-9]{9,11}">
+        <input type="email" name="email" placeholder="Email (không bắt buộc)">
+        <select name="interest"><option value="">— Quan tâm —</option><option value="an-cu">An cư</option><option value="dau-tu">Đầu tư</option><option value="kinh-doanh">Shophouse</option><option value="tim-hieu">Tìm hiểu</option></select>
+        <button type="submit" class="btn-coral">Nhận Bảng Giá Ngay</button>
+      </form>
+      <div class="success-msg" id="successMsg">✅ Cảm ơn! Chuyên viên gọi lại trong 5 phút.</div>
+      <p class="card-note">Miễn phí · Không spam · Bảo mật</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p><strong>Hiệp Phước Premia</strong> — CĐT Hai Thành Group · Mặt tiền Nguyễn Văn Tạo nối dài, Cần Giuộc, Long An</p>
+  <p style="margin-top:4px">© 2026 · Thông tin tham khảo</p>
+</div>
+
+<a href="https://zalo.me/0878349899" class="zalo-float" target="_blank">💬</a>
+
+<script>
+async function submitLead(e){
+  e.preventDefault();const f=e.target,b=f.querySelector('button');b.textContent='Đang gửi...';b.disabled=true;
+  const d=new FormData(f),name=d.get('name'),phone=d.get('phone'),email=d.get('email')||'',interest=d.get('interest')||'';
+  const iMap={'an-cu':'🏠 An cư','dau-tu':'📈 Đầu tư','kinh-doanh':'🏪 Shophouse','tim-hieu':'🔍 Tìm hiểu'};
+  const msg=`🔔 *LEAD — Hiệp Phước Premia*\n\n👤 ${name}\n📞 \`${phone}\`\n📧 ${email||'N/A'}\n🎯 ${iMap[interest]||'❓'}\n⏰ ${new Date().toLocaleString('vi-VN')}\n🌐 v4-airbnb`;
+  try{await fetch('https://api.telegram.org/bot8689375664:AAGENJ6a_Z9q0VJP7a9QVXSwdeJxE6Y2GDw/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'-1003539066567',message_thread_id:5270,text:msg,parse_mode:'Markdown'})})}catch(err){}
+  const leads=JSON.parse(localStorage.getItem('hpp_leads')||'[]');leads.push({name,phone,email,interest,time:new Date().toISOString(),src:'v4'});localStorage.setItem('hpp_leads',JSON.stringify(leads));
+  f.style.display='none';document.getElementById('successMsg').style.display='block';return false;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đất Nền Hiệp Phước Premia – Sổ Đỏ Riêng Giáp Nhà Bè | DKRA</title>
+<meta name="description" content="Đất nền sổ đỏ Hiệp Phước Premia 50ha, giáp Nhà Bè TP.HCM. Vay 70%, thanh toán giãn 24 tháng. Đón đầu Vành Đai 4.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#1B4332;--accent:#D4A574;--dark:#0B1D0F;--light:#F5F1EB;--text:#2D3436}
+body{font-family:'Source Sans 3',sans-serif;color:var(--text);background:var(--light)}
+
+/* Topbar */
+.topbar{background:var(--dark);color:#fff;padding:8px 20px;font-size:0.8rem;display:flex;justify-content:space-between;align-items:center}
+.topbar a{color:var(--accent);text-decoration:none}
+
+/* Hero - split layout */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:85vh}
+.hero-img{background:url('https://premia.vn/wp-content/uploads/2025/12/hiep-phuoc-premia-long-an.jpg') center/cover;position:relative}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--dark))}
+.hero-content{background:var(--dark);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:60px 50px}
+.hero-content .label{color:var(--accent);font-size:0.85rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.15;margin-bottom:20px}
+.hero-content h1 span{color:var(--accent)}
+.hero-content p{font-size:1.05rem;opacity:0.85;margin-bottom:30px;line-height:1.7}
+.hero-content .stats{display:flex;gap:30px;margin-bottom:30px}
+.stat{text-align:center}
+.stat .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:var(--accent)}
+.stat .lbl{font-size:0.75rem;opacity:0.7;text-transform:uppercase;letter-spacing:1px}
+.btn-primary{background:var(--accent);color:var(--dark);padding:16px 36px;border:none;border-radius:4px;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;letter-spacing:1px}
+.btn-primary:hover{background:#c4955a;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:#fff;border:2px solid var(--accent);padding:14px 36px;border-radius:4px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;margin-left:12px;transition:all 0.3s}
+.btn-outline:hover{background:var(--accent);color:var(--dark)}
+
+/* Info bar */
+.info-bar{background:#fff;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-bottom:3px solid var(--accent)}
+.info-item{padding:30px 20px;text-align:center;border-right:1px solid #eee}
+.info-item:last-child{border:none}
+.info-item .ico{font-size:1.8rem;margin-bottom:8px}
+.info-item h4{font-size:0.9rem;font-weight:700;color:var(--primary)}
+.info-item p{font-size:0.8rem;color:#666;margin-top:4px}
+
+/* Sections */
+.section{max-width:1000px;margin:0 auto;padding:60px 20px}
+.section-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--primary);margin-bottom:8px}
+.section-sub{color:#888;font-size:0.95rem;margin-bottom:40px}
+.divider{width:60px;height:3px;background:var(--accent);margin:16px 0 30px}
+
+/* Location grid */
+.loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.loc-card{background:#fff;border-radius:8px;padding:24px;display:flex;align-items:center;gap:16px;box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+.loc-card .time{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--accent);min-width:70px;text-align:center}
+.loc-card .unit{font-size:0.7rem;color:#888;display:block}
+.loc-card .dest{font-weight:600;font-size:0.95rem}
+
+/* Amenities */
+.amenity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.amenity{text-align:center;padding:30px 15px;background:#fff;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:all 0.3s}
+.amenity:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.1)}
+.amenity .ico{font-size:2.5rem;margin-bottom:12px}
+.amenity h4{font-size:0.9rem;font-weight:700;margin-bottom:6px}
+.amenity p{font-size:0.8rem;color:#666}
+
+/* CTA section */
+.cta-section{background:var(--dark);padding:60px 20px;text-align:center;color:#fff}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:8px}
+.cta-section .sub{opacity:0.7;margin-bottom:30px;font-size:1.05rem}
+.form-row{max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-row.full{grid-template-columns:1fr}
+.form-row input,.form-row select{padding:14px 18px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:0.95rem;border-radius:4px}
+.form-row input::placeholder{color:rgba(255,255,255,0.5)}
+.form-row input:focus{outline:none;border-color:var(--accent)}
+.form-row select option{color:#333}
+.submit-btn{background:var(--accent);color:var(--dark);padding:16px 40px;border:none;font-size:1.05rem;font-weight:700;cursor:pointer;border-radius:4px;letter-spacing:1px;transition:all 0.3s;margin-top:12px}
+.submit-btn:hover{background:#c4955a}
+.trust-row{display:flex;justify-content:center;gap:30px;margin-top:24px;font-size:0.8rem;opacity:0.6}
+.success-msg{display:none;background:var(--accent);color:var(--dark);padding:20px;border-radius:8px;font-weight:700;font-size:1.1rem;max-width:500px;margin:0 auto}
+.zalo-cta{display:inline-block;background:#0068ff;color:#fff;padding:12px 28px;border-radius:4px;font-weight:700;text-decoration:none;margin-bottom:20px;font-size:1rem}
+
+/* Developer */
+.dev-section{background:#fff;padding:50px 20px;text-align:center}
+.dev-section h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--primary);margin-bottom:8px}
+.dev-section p{color:#666;max-width:600px;margin:0 auto}
+
+/* Footer */
+.footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:30px 20px;text-align:center;font-size:0.8rem}
+.footer strong{color:var(--accent)}
+
+/* Floating */
+.zalo-float{position:fixed;bottom:20px;right:20px;background:#0068ff;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;text-decoration:none;box-shadow:0 4px 15px rgba(0,104,255,0.4);z-index:999}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--accent);padding:12px;text-align:center;z-index:998;display:none;box-shadow:0 -4px 15px rgba(0,0,0,0.2)}
+.sticky-bar a{color:var(--dark);font-weight:700;text-decoration:none;font-size:0.95rem}
+
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-img{height:250px}
+  .hero-img::after{background:linear-gradient(0deg,var(--dark) 10%,transparent)}
+  .hero-content{padding:30px 20px}
+  .hero-content .stats{gap:15px}
+  .info-bar{grid-template-columns:repeat(2,1fr)}
+  .loc-grid{grid-template-columns:1fr}
+  .amenity-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+  .btn-outline{margin:10px 0 0}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📍 Mặt tiền Nguyễn Văn Tạo nối dài, Cần Giuộc, Long An</span>
+  <a href="https://zalo.me/0878349899">Zalo: 0878 349 899</a>
+</div>
+
+<div class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="label">Khu Đô Thị Sinh Thái Ven Sông</div>
+    <h1>Hiệp Phước <span>Premia</span></h1>
+    <p>Đất nền sổ đỏ riêng 50ha giáp Nhà Bè — Mặt tiền sông Soài Rạp hơn 1km. Đón đầu Vành Đai 4 & Cao tốc Bến Lức – Long Thành.</p>
+    <div class="stats">
+      <div class="stat"><div class="num">50</div><div class="lbl">Hecta</div></div>
+      <div class="stat"><div class="num">1km+</div><div class="lbl">Ven sông</div></div>
+      <div class="stat"><div class="num">18'</div><div class="lbl">Đến Q7</div></div>
+      <div class="stat"><div class="num">70%</div><div class="lbl">Hỗ trợ vay</div></div>
+    </div>
+    <div>
+      <a href="#dang-ky" class="btn-primary">NHẬN BẢNG GIÁ</a>
+      <a href="https://zalo.me/0878349899" class="btn-outline" target="_blank">💬 Chat Zalo</a>
+    </div>
+  </div>
+</div>
+
+<div class="info-bar">
+  <div class="info-item"><div class="ico">📜</div><h4>Sổ Đỏ Riêng</h4><p>Pháp lý minh bạch</p></div>
+  <div class="info-item"><div class="ico">💰</div><h4>Giãn 24 Tháng</h4><p>Thanh toán linh hoạt</p></div>
+  <div class="info-item"><div class="ico">📈</div><h4>+20-30%</h4><p>Dự báo tăng giá 2026</p></div>
+  <div class="info-item"><div class="ico">🏙️</div><h4>Giáp Nhà Bè</h4><p>Giá 1/3 – 1/2</p></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Vị Trí Chiến Lược</div>
+  <div class="divider"></div>
+  <div class="loc-grid">
+    <div class="loc-card"><div class="time">5<span class="unit">phút</span></div><div class="dest">KCN & Cảng Quốc tế Hiệp Phước</div></div>
+    <div class="loc-card"><div class="time">18<span class="unit">phút</span></div><div class="dest">Phú Mỹ Hưng, Quận 7</div></div>
+    <div class="loc-card"><div class="time">25<span class="unit">phút</span></div><div class="dest">Trung tâm Quận 1</div></div>
+    <div class="loc-card"><div class="time">5<span class="unit">phút</span></div><div class="dest">Cao tốc Bến Lức – Long Thành</div></div>
+    <div class="loc-card"><div class="time">1<span class="unit">rạch</span></div><div class="dest">Nhà Bè, TP.HCM — liền kề</div></div>
+    <div class="loc-card"><div class="time">30<span class="unit">phút</span></div><div class="dest">Trung tâm Quận 2</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Tiện Ích Nội Khu</div>
+  <div class="divider"></div>
+  <div class="amenity-grid">
+    <div class="amenity"><div class="ico">🏞️</div><h4>Công Viên 10,000m²</h4><p>Ven sông Soài Rạp</p></div>
+    <div class="amenity"><div class="ico">🛥️</div><h4>Bến Du Thuyền</h4><p>Lifestyle ven sông</p></div>
+    <div class="amenity"><div class="ico">🏋️</div><h4>Gym & Thể Thao</h4><p>Đa năng hiện đại</p></div>
+    <div class="amenity"><div class="ico">🛒</div><h4>Shophouse</h4><p>Thương mại nội khu</p></div>
+    <div class="amenity"><div class="ico">🌳</div><h4>Vườn BBQ</h4><p>Không gian gia đình</p></div>
+    <div class="amenity"><div class="ico">🏫</div><h4>Trường Quốc Tế</h4><p>AIS 5-10 phút</p></div>
+    <div class="amenity"><div class="ico">🔒</div><h4>An Ninh 24/7</h4><p>Camera toàn khu</p></div>
+    <div class="amenity"><div class="ico">🎡</div><h4>Khu Vui Chơi</h4><p>Thiết kế Kotobuki</p></div>
+  </div>
+</div>
+
+<div class="cta-section" id="dang-ky">
+  <h2>Nhận Bảng Giá & Ưu Đãi Giai Đoạn 2</h2>
+  <p class="sub">Để lại số điện thoại — Chuyên viên sẽ gọi lại tư vấn miễn phí</p>
+  <a href="https://zalo.me/0878349899" class="zalo-cta" target="_blank">💬 Chat Zalo — 0878 349 899</a>
+  <p style="opacity:0.5;margin-bottom:16px;font-size:0.85rem">— hoặc điền form —</p>
+  <form id="leadForm" onsubmit="return submitLead(event)">
+    <div class="form-row">
+      <input type="text" name="name" placeholder="Họ và tên *" required>
+      <input type="tel" name="phone" placeholder="Số điện thoại *" required pattern="[0-9]{9,11}">
+    </div>
+    <div class="form-row">
+      <input type="email" name="email" placeholder="Email (không bắt buộc)">
+      <select name="interest"><option value="">— Quan tâm —</option><option value="an-cu">An cư</option><option value="dau-tu">Đầu tư</option><option value="kinh-doanh">Shophouse</option><option value="tim-hieu">Tìm hiểu</option></select>
+    </div>
+    <div class="form-row full">
+      <button type="submit" class="submit-btn">GỬI NGAY — NHẬN BẢNG GIÁ</button>
+    </div>
+  </form>
+  <div class="success-msg" id="successMsg">✅ Cảm ơn! Chuyên viên sẽ liên hệ trong 5 phút.</div>
+  <div class="trust-row"><span>✅ Bảo mật</span><span>✅ Miễn phí</span><span>✅ Không spam</span></div>
+</div>
+
+<div class="dev-section">
+  <h3>Chủ Đầu Tư — Hai Thành Group</h3>
+  <p style="margin-top:8px">Saigon Village · Hiệp Phước Harbour View GĐ1 · The 826 EC<br>Thâm niên phát triển BĐS Long An</p>
+</div>
+
+<div class="footer">
+  <p><strong>Hiệp Phước Premia</strong> — Khu Đô Thị Sinh Thái 50ha Ven Sông</p>
+  <p>Mặt tiền Nguyễn Văn Tạo nối dài, Cần Giuộc, Long An</p>
+  <p style="margin-top:8px">© 2026 DKRA. Thông tin tham khảo.</p>
+</div>
+
+<a href="https://zalo.me/0878349899" class="zalo-float" target="_blank">💬</a>
+<div class="sticky-bar" id="stickyCta"><a href="#dang-ky">📞 NHẬN BẢNG GIÁ — Ưu Đãi GĐ2 Có Hạn</a></div>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('stickyCta').style.display=window.scrollY>500?'block':'none'});
+async function submitLead(e){
+  e.preventDefault();const f=e.target,b=f.querySelector('button');b.textContent='Đang gửi...';b.disabled=true;
+  const d=new FormData(f),name=d.get('name'),phone=d.get('phone'),email=d.get('email')||'',interest=d.get('interest')||'';
+  const iMap={'an-cu':'🏠 An cư','dau-tu':'📈 Đầu tư','kinh-doanh':'🏪 Shophouse','tim-hieu':'🔍 Tìm hiểu'};
+  const msg=`🔔 *LEAD — Hiệp Phước Premia*\n\n👤 ${name}\n📞 \`${phone}\`\n📧 ${email||'N/A'}\n🎯 ${iMap[interest]||'❓'}\n⏰ ${new Date().toLocaleString('vi-VN')}\n🌐 v2-realestate`;
+  try{await fetch('https://api.telegram.org/bot8689375664:AAGENJ6a_Z9q0VJP7a9QVXSwdeJxE6Y2GDw/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'-1003539066567',message_thread_id:5270,text:msg,parse_mode:'Markdown'})})}catch(err){}
+  const leads=JSON.parse(localStorage.getItem('hpp_leads')||'[]');leads.push({name,phone,email,interest,time:new Date().toISOString(),src:'v2'});localStorage.setItem('hpp_leads',JSON.stringify(leads));
+  f.style.display='none';document.getElementById('successMsg').style.display='block';return false;
+}
+</script>
+</body>
+</html>
