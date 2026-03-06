@@ -1,0 +1,53 @@
+name: Daily SEO Page Generator
+
+on:
+  schedule:
+    # Run daily at 02:00 UTC (09:00 Vietnam time)
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate SEO pages
+        run: node generate/generate.js
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet && echo "no_changes=true" >> $GITHUB_OUTPUT || echo "no_changes=false" >> $GITHUB_OUTPUT
+
+      - name: Commit generated pages
+        if: steps.changes.outputs.no_changes == 'false'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "SEO Bot"
+          git add -A
+          git commit -m "🤖 Daily SEO update — $(date '+%Y-%m-%d')"
+          git push
+
+      - name: Deploy to GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
