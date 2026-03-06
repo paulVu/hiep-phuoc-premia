@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiệp Phước Premia — Tính ROI Đầu Tư | Đất Nền Sổ Đỏ Long An</title>
+<meta name="description" content="Tính toán lợi nhuận đầu tư Hiệp Phước Premia. Đất nền sổ đỏ 50ha ven sông Soài Rạp giáp Nhà Bè TP.HCM. Dự báo tăng giá 20-30% năm 2026.">
+<meta name="keywords" content="Hiệp Phước Premia, đầu tư đất nền Long An, ROI bất động sản, đất nền Cần Giuộc sổ đỏ, Hai Thành Group, Nam Sài Gòn">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://paulvu.github.io/hiep-phuoc-premia/v7-calculator.html">
+<meta property="og:title" content="Hiệp Phước Premia — Tính ROI Đầu Tư Đất Nền">
+<meta property="og:description" content="Tính lợi nhuận đầu tư đất nền Long An. Dự báo tăng giá 20-30% khi Vành Đai 4 hoàn thiện.">
+<meta property="og:image" content="https://premia.vn/wp-content/uploads/2026/01/phoi-canh-hiep-phuoc-premia2.jpg">
+<meta property="og:url" content="https://paulvu.github.io/hiep-phuoc-premia/v7-calculator.html">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#1a56db;--blue2:#1e429f;--teal:#0694a2;--green:#057a55;--bg:#f9fafb;--surface:#fff;--dark:#111928;--gray:#6b7280;--border:#e5e7eb}
+body{font-family:'Be Vietnam Pro',sans-serif;color:var(--dark);background:var(--bg)}
+
+/* Nav */
+.nav{background:#fff;border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--teal));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem}
+.logo-text{font-weight:700;font-size:1rem;color:var(--dark)}
+.logo-sub{font-size:0.7rem;color:var(--gray)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.badge{background:#fef3c7;color:#92400e;padding:4px 10px;border-radius:20px;font-size:0.72rem;font-weight:600}
+.btn-nav{background:var(--blue);color:#fff;padding:9px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;text-decoration:none;border:none;cursor:pointer}
+
+/* Hero split */
+.hero-split{display:grid;grid-template-columns:1fr 1fr;min-height:90vh}
+.hero-left{position:relative;overflow:hidden}
+.hero-left img{width:100%;height:100%;object-fit:cover}
+.hero-left-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(17,25,40,0.3),transparent)}
+.hero-right{padding:60px 48px;display:flex;flex-direction:column;justify-content:center;background:#fff}
+.badge-hero{display:inline-flex;align-items:center;gap:6px;background:#ecfdf5;color:#065f46;padding:6px 14px;border-radius:20px;font-size:0.78rem;font-weight:600;margin-bottom:20px}
+.badge-hero::before{content:'●';color:#10b981;font-size:0.6rem}
+.hero-right h1{font-size:2.4rem;font-weight:800;line-height:1.15;margin-bottom:12px;color:var(--dark)}
+.hero-right h1 span{color:var(--blue)}
+.hero-right .sub{font-size:1rem;color:var(--gray);line-height:1.7;margin-bottom:28px}
+
+/* Quick stats */
+.quick-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.qs{background:var(--bg);border-radius:12px;padding:16px;text-align:center}
+.qs .val{font-size:1.5rem;font-weight:800;color:var(--blue)}
+.qs .lbl{font-size:0.72rem;color:var(--gray);margin-top:2px}
+
+/* Form in hero */
+.form-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px}
+.form-card h3{font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--dark)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-grid input,.form-grid select,.form-full input{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:'Be Vietnam Pro',sans-serif;background:#fff;color:var(--dark);outline:none;transition:border-color 0.2s}
+.form-grid input:focus,.form-grid select:focus,.form-full input:focus{border-color:var(--blue)}
+.form-full{margin-top:10px}
+.btn-blue{width:100%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border:none;padding:14px;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;margin-top:12px;transition:opacity 0.2s;font-family:'Be Vietnam Pro',sans-serif}
+.btn-blue:hover{opacity:0.9}
+.form-note{font-size:0.72rem;color:var(--gray);text-align:center;margin-top:8px}
+.success-msg{display:none;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;padding:14px;border-radius:8px;font-weight:600;text-align:center;margin-top:10px}
+
+/* ROI Calculator section */
+.calc-section{max-width:1100px;margin:0 auto;padding:80px 24px}
+.section-head{text-align:center;margin-bottom:48px}
+.section-head .pill{display:inline-block;background:#eff6ff;color:var(--blue);padding:6px 16px;border-radius:20px;font-size:0.8rem;font-weight:600;margin-bottom:12px}
+.section-head h2{font-size:2rem;font-weight:800;margin-bottom:8px}
+.section-head p{color:var(--gray);font-size:0.95rem}
+.calc-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:40px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.calc-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.calc-inputs h3{font-size:1.1rem;font-weight:700;margin-bottom:20px}
+.calc-group{margin-bottom:20px}
+.calc-group label{display:block;font-size:0.85rem;font-weight:600;color:var(--gray);margin-bottom:6px}
+.calc-group input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer;height:6px}
+.calc-group .range-val{display:flex;justify-content:space-between;margin-top:6px;font-size:0.8rem;color:var(--gray)}
+.calc-group .current-val{font-size:1.2rem;font-weight:700;color:var(--blue);margin-top:4px}
+.calc-results{background:linear-gradient(135deg,var(--blue),var(--blue2));border-radius:16px;padding:32px;color:#fff}
+.calc-results h3{font-size:1.1rem;font-weight:700;margin-bottom:24px;opacity:0.9}
+.result-item{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.15)}
+.result-item:last-child{border:none;margin:0;padding:0}
+.result-item .rl{font-size:0.8rem;opacity:0.75;margin-bottom:4px}
+.result-item .rv{font-size:1.6rem;font-weight:800}
+.result-item .rv.green{color:#6ee7b7}
+.calc-note{font-size:0.72rem;opacity:0.6;margin-top:16px;line-height:1.5}
+
+/* Gallery section */
+.gallery-sec{background:var(--dark);padding:80px 0}
+.gallery-sec .section-head{color:#fff}
+.gallery-sec .section-head p{color:#9ca3af}
+.gallery-scroll{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;max-width:100%}
+.gallery-scroll img{width:100%;height:280px;object-fit:cover;filter:brightness(0.8);transition:all 0.4s;cursor:pointer}
+.gallery-scroll img:hover{filter:brightness(1);transform:scale(1.02);z-index:1;position:relative}
+
+/* Amenities */
+.amen-section{max-width:1100px;margin:0 auto;padding:80px 24px}
+.amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.amen-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;transition:box-shadow 0.3s}
+.amen-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.amen-card .ico{font-size:2rem;margin-bottom:12px}
+.amen-card h4{font-size:0.9rem;font-weight:700;margin-bottom:4px}
+.amen-card p{font-size:0.8rem;color:var(--gray);line-height:1.5}
+
+/* Location */
+.loc-section{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 24px}
+.loc-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.loc-img img{width:100%;border-radius:16px;object-fit:cover;height:360px}
+.loc-text h2{font-size:2rem;font-weight:800;margin-bottom:16px}
+.loc-text p{color:var(--gray);line-height:1.8;margin-bottom:20px}
+.loc-tags{display:flex;flex-wrap:wrap;gap:8px}
+.loc-tag{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);padding:10px 16px;border-radius:10px;font-size:0.85rem}
+.loc-tag strong{color:var(--blue)}
+
+/* Footer */
+.footer{background:var(--dark);color:#9ca3af;padding:40px 24px;text-align:center;font-size:0.8rem}
+.footer a{color:#60a5fa}
+
+/* Float */
+.zalo-float{position:fixed;bottom:20px;right:20px;background:#0068ff;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;text-decoration:none;box-shadow:0 4px 16px rgba(0,104,255,.4);z-index:99}
+
+@media(max-width:768px){
+  .hero-split{grid-template-columns:1fr}
+  .hero-left{height:300px}
+  .hero-right{padding:32px 20px}
+  .hero-right h1{font-size:1.8rem}
+  .quick-stats{grid-template-columns:repeat(3,1fr)}
+  .form-grid{grid-template-columns:1fr}
+  .calc-layout{grid-template-columns:1fr}
+  .gallery-scroll{grid-template-columns:1fr 1fr}
+  .amen-grid{grid-template-columns:1fr 1fr}
+  .loc-inner{grid-template-columns:1fr;gap:24px}
+  .calc-section{padding:40px 16px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">
+    <div class="logo-icon">HP</div>
+    <div>
+      <div class="logo-text">Hiệp Phước Premia</div>
+      <div class="logo-sub">Cần Giuộc · Long An</div>
+    </div>
+  </div>
+  <div class="nav-right">
+    <span class="badge">🔥 Đang mở bán</span>
+    <a href="#dang-ky" class="btn-nav">Nhận Bảng Giá</a>
+  </div>
+</nav>
+
+<section class="hero-split">
+  <div class="hero-left">
+    <img src="https://premia.vn/wp-content/uploads/2026/01/phoi-canh-hiep-phuoc-premia2.jpg" alt="Phối cảnh Hiệp Phước Premia — khu đô thị 50ha ven sông">
+    <div class="hero-left-overlay"></div>
+  </div>
+  <div class="hero-right" id="dang-ky">
+    <div class="badge-hero">Đang mở bán giai đoạn 2</div>
+    <h1>Đất nền sổ đỏ<br><span>ven sông Soài Rạp</span></h1>
+    <p class="sub">50 hecta · Giáp Nhà Bè TP.HCM · Vay 70% · Tăng giá 20-30% khi Vành Đai 4 hoàn thành</p>
+    <div class="quick-stats">
+      <div class="qs"><div class="val">50ha</div><div class="lbl">Quy mô</div></div>
+      <div class="qs"><div class="val">70%</div><div class="lbl">Vay NH</div></div>
+      <div class="qs"><div class="val">+30%</div><div class="lbl">Tăng giá</div></div>
+    </div>
+    <div class="form-card">
+      <h3>📋 Nhận Bảng Giá & Ưu Đãi</h3>
+      <form id="leadForm" onsubmit="return submitLead(event)">
+        <div class="form-grid">
+          <input type="text" name="name" placeholder="Họ và tên" required>
+          <input type="tel" name="phone" placeholder="Số điện thoại" required pattern="[0-9]{9,11}">
+        </div>
+        <div class="form-grid" style="margin-top:10px">
+          <input type="email" name="email" placeholder="Email (không bắt buộc)">
+          <select name="interest"><option value="">— Quan tâm —</option><option value="an-cu">An cư</option><option value="dau-tu">Đầu tư</option><option value="kinh-doanh">Shophouse</option><option value="tim-hieu">Tìm hiểu</option></select>
+        </div>
+        <button type="submit" class="btn-blue">🏡 Nhận Bảng Giá Ngay — Miễn Phí</button>
+      </form>
+      <div class="success-msg" id="successMsg">✅ Cảm ơn! Chuyên viên gọi lại trong 5 phút.</div>
+      <p class="form-note">Hoặc: <a href="https://zalo.me/0878349899" target="_blank" style="color:var(--blue);font-weight:600">Chat Zalo 0878 349 899</a> · Miễn phí · Không spam</p>
+    </div>
+  </div>
+</section>
+
+<section class="calc-section">
+  <div class="section-head">
+    <div class="pill">📊 Công cụ đầu tư</div>
+    <h2>Tính Lợi Nhuận Đầu Tư</h2>
+    <p>Ước tính ROI dựa trên kịch bản tăng giá khi hạ tầng Vành Đai 4 hoàn thiện</p>
+  </div>
+  <div class="calc-card">
+    <div class="calc-layout">
+      <div class="calc-inputs">
+        <h3>🔢 Nhập thông số</h3>
+        <div class="calc-group">
+          <label>Diện tích nền (m²)</label>
+          <input type="range" id="area" min="60" max="300" value="100" step="10" oninput="calcROI()">
+          <div class="range-val"><span>60m²</span><span>300m²</span></div>
+          <div class="current-val" id="areaVal">100 m²</div>
+        </div>
+        <div class="calc-group">
+          <label>Giá mua (triệu/m²)</label>
+          <input type="range" id="price" min="15" max="40" value="22" step="1" oninput="calcROI()">
+          <div class="range-val"><span>15tr</span><span>40tr</span></div>
+          <div class="current-val" id="priceVal">22 tr/m²</div>
+        </div>
+        <div class="calc-group">
+          <label>Tỷ lệ vay ngân hàng (%)</label>
+          <input type="range" id="loan" min="0" max="70" value="50" step="5" oninput="calcROI()">
+          <div class="range-val"><span>0%</span><span>70%</span></div>
+          <div class="current-val" id="loanVal">50%</div>
+        </div>
+        <div class="calc-group">
+          <label>Kịch bản tăng giá (%/năm)</label>
+          <input type="range" id="growth" min="10" max="35" value="25" step="5" oninput="calcROI()">
+          <div class="range-val"><span>10%</span><span>35%</span></div>
+          <div class="current-val" id="growthVal">25%/năm</div>
+        </div>
+      </div>
+      <div class="calc-results">
+        <h3>📈 Kết quả dự kiến (2 năm)</h3>
+        <div class="result-item">
+          <div class="rl">Tổng giá trị căn</div>
+          <div class="rv" id="totalVal">2.200.000.000 đ</div>
+        </div>
+        <div class="result-item">
+          <div class="rl">Vốn tự có cần có</div>
+          <div class="rv" id="equity">1.100.000.000 đ</div>
+        </div>
+        <div class="result-item">
+          <div class="rl">Giá trị sau 2 năm</div>
+          <div class="rv" id="futureVal">3.437.500.000 đ</div>
+        </div>
+        <div class="result-item">
+          <div class="rl">Lợi nhuận ước tính</div>
+          <div class="rv green" id="profit">+1.237.500.000 đ</div>
+        </div>
+        <div class="result-item">
+          <div class="rl">ROI trên vốn tự có</div>
+          <div class="rv green" id="roi">+113%</div>
+        </div>
+        <div class="calc-note">* Ước tính dựa trên kịch bản tăng giá khi Vành Đai 4 hoàn thiện. Không phải cam kết lợi nhuận.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-sec">
+  <div class="section-head">
+    <div class="pill" style="background:rgba(255,255,255,.1);color:#fff">Hình ảnh thực tế</div>
+    <h2>Không gian sống Hiệp Phước Premia</h2>
+    <p>Công viên ven sông, cổng chào, biệt thự, nhà phố</p>
+  </div>
+  <div class="gallery-scroll" style="margin-top:40px">
+    <img src="https://premia.vn/wp-content/uploads/2026/01/phoi-canh-hiep-phuoc-premia.jpg" alt="Phối cảnh Hiệp Phước Premia">
+    <img src="https://premia.vn/wp-content/uploads/2026/01/cong-vien-ven-song-hiep-phuoc-premia.jpg" alt="Công viên ven sông">
+    <img src="https://premia.vn/wp-content/uploads/2026/01/biet-thu-hiep-phuoc-premia.jpg" alt="Biệt thự Hiệp Phước Premia">
+    <img src="https://premia.vn/wp-content/uploads/2026/01/cong-chao-hiep-phuoc-premia.jpg" alt="Cổng chào dự án">
+  </div>
+</section>
+
+<section class="amen-section">
+  <div class="section-head">
+    <div class="pill">Tiện ích đẳng cấp</div>
+    <h2>Hệ sinh thái sống hoàn chỉnh</h2>
+  </div>
+  <div class="amen-grid">
+    <div class="amen-card"><div class="ico">🏞️</div><h4>Công viên ven sông</h4><p>10,000m² đường dạo bộ ven sông Soài Rạp</p></div>
+    <div class="amen-card"><div class="ico">🛥️</div><h4>Bến du thuyền</h4><p>Điểm nhấn đẳng cấp độc quyền ven sông</p></div>
+    <div class="amen-card"><div class="ico">🏋️</div><h4>Gym & Thể thao</h4><p>Khu thể thao đa năng ngoài trời hiện đại</p></div>
+    <div class="amen-card"><div class="ico">🏫</div><h4>Trường Quốc tế AIS</h4><p>Chỉ 5-10 phút — chuẩn Mỹ tại Nam Sài Gòn</p></div>
+    <div class="amen-card"><div class="ico">🛒</div><h4>Shophouse thương mại</h4><p>Kinh doanh, café, nhà hàng nội khu</p></div>
+    <div class="amen-card"><div class="ico">🔒</div><h4>An ninh 24/7</h4><p>Camera toàn khu, cổng kiểm soát đa lớp</p></div>
+    <div class="amen-card"><div class="ico">🎡</div><h4>Khu vui chơi Kotobuki</h4><p>An toàn, sáng tạo cho cư dân nhí</p></div>
+    <div class="amen-card"><div class="ico">🌳</div><h4>BBQ & Quảng trường</h4><p>Sự kiện cộng đồng, vọng cảnh hoàng hôn</p></div>
+  </div>
+</section>
+
+<section class="loc-section">
+  <div class="loc-inner">
+    <div class="loc-img">
+      <img src="https://premia.vn/wp-content/uploads/2026/01/vi-tri-hiep-phuoc-hiep-phuoc-premia.jpg" alt="Vị trí Hiệp Phước Premia giáp Nhà Bè TP.HCM">
+    </div>
+    <div class="loc-text">
+      <h2>Vị trí vàng — Giáp TP.HCM</h2>
+      <p>Tọa lạc mặt tiền đường Nguyễn Văn Tạo nối dài (lộ giới 60m), chỉ cách Nhà Bè TP.HCM một con rạch. Hưởng trọn hạ tầng đô thị với giá Long An.</p>
+      <div class="loc-tags">
+        <div class="loc-tag"><strong>1 rạch</strong> cách Nhà Bè HCM</div>
+        <div class="loc-tag"><strong>5'</strong> KCN Hiệp Phước</div>
+        <div class="loc-tag"><strong>20'</strong> Phú Mỹ Hưng Q7</div>
+        <div class="loc-tag"><strong>25'</strong> Quận 1</div>
+        <div class="loc-tag"><strong>5'</strong> Cao tốc BL–LT</div>
+        <div class="loc-tag"><strong>30'</strong> SB Long Thành</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p><strong style="color:#fff">Hiệp Phước Premia</strong> — CĐT Hai Thành Group · Mặt tiền Nguyễn Văn Tạo nối dài, Cần Giuộc, Long An</p>
+  <p style="margin-top:8px">© 2026 · Thông tin tham khảo · <a href="https://premia.vn">premia.vn</a></p>
+</footer>
+
+<a href="https://zalo.me/0878349899" class="zalo-float" target="_blank">💬</a>
+
+<script>
+function fmt(n){return Math.round(n).toLocaleString('vi-VN')+'đ'}
+function calcROI(){
+  const area=+document.getElementById('area').value;
+  const price=+document.getElementById('price').value;
+  const loanPct=+document.getElementById('loan').value/100;
+  const growth=+document.getElementById('growth').value/100;
+  document.getElementById('areaVal').textContent=area+' m²';
+  document.getElementById('priceVal').textContent=price+' tr/m²';
+  document.getElementById('loanVal').textContent=(loanPct*100)+'%';
+  document.getElementById('growthVal').textContent=(growth*100)+'%/năm';
+  const total=area*price*1e6;
+  const equity=total*(1-loanPct);
+  const future=total*Math.pow(1+growth,2);
+  const profit=future-total;
+  const roi=(profit/equity)*100;
+  document.getElementById('totalVal').textContent=fmt(total);
+  document.getElementById('equity').textContent=fmt(equity);
+  document.getElementById('futureVal').textContent=fmt(future);
+  document.getElementById('profit').textContent='+'+fmt(profit);
+  document.getElementById('roi').textContent='+'+roi.toFixed(0)+'%';
+}
+calcROI();
+
+async function submitLead(e){
+  e.preventDefault();const f=e.target,b=f.querySelector('button');b.textContent='Đang gửi...';b.disabled=true;
+  const d=new FormData(f),name=d.get('name'),phone=d.get('phone'),email=d.get('email')||'',interest=d.get('interest')||'';
+  const iMap={'an-cu':'🏠 An cư','dau-tu':'📈 Đầu tư','kinh-doanh':'🏪 Shophouse','tim-hieu':'🔍 Tìm hiểu'};
+  const msg=`🔔 *LEAD — Hiệp Phước Premia*\n\n👤 ${name}\n📞 \`${phone}\`\n📧 ${email||'N/A'}\n🎯 ${iMap[interest]||'❓'}\n⏰ ${new Date().toLocaleString('vi-VN')}\n🌐 v7-calculator`;
+  try{await fetch('https://api.telegram.org/bot8689375664:AAGENJ6a_Z9q0VJP7a9QVXSwdeJxE6Y2GDw/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'-1003539066567',message_thread_id:5270,text:msg,parse_mode:'Markdown'})})}catch(err){}
+  f.style.display='none';document.getElementById('successMsg').style.display='block';return false;
+}
+</script>
+</body>
+</html>
