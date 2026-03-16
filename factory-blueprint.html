@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Short Video Factory Blueprint</title>
+<meta name="description" content="Blueprint xây dựng short-video content factory cho bất động sản: workflow, team, AI/OpenClaw, content buckets, funnel, KPI và lộ trình triển khai.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://paulvu.github.io/hiep-phuoc-premia/factory-blueprint.html">
+<meta property="og:title" content="Short Video Factory Blueprint">
+<meta property="og:description" content="Cách xây short-video content factory để sản xuất TikTok, Reels, Shorts ở quy mô hệ thống.">
+<meta property="og:image" content="https://premia.vn/wp-content/uploads/2026/01/phoi-canh-hiep-phuoc-premia.jpg">
+<meta property="og:url" content="https://paulvu.github.io/hiep-phuoc-premia/factory-blueprint.html">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#171717;--paper:#faf8f5;--accent:#8b6f47;--accent2:#c49a6c;--gray:#666;--line:#e0dcd7;--dark:#111;--soft:#f3efe9;--blue:#1d4ed8;--green:#0f8a5f}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper)}
+a{text-decoration:none;color:inherit}
+.top-bar{display:flex;justify-content:center;gap:24px;padding:10px;border-bottom:1px solid var(--line);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);flex-wrap:wrap}
+.masthead{text-align:center;padding:20px;border-bottom:3px double var(--ink)}
+.masthead .date{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+.masthead h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;letter-spacing:-.5px}
+.masthead .tagline{font-size:.9rem;color:var(--accent);margin-top:4px;font-weight:500;max-width:820px;margin-left:auto;margin-right:auto}
+.hero-ed{max-width:1100px;margin:0 auto;padding:40px 24px 0}
+.hero-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:stretch}
+.hero-image{width:100%;height:520px;object-fit:cover;filter:grayscale(6%)}
+.hero-card{background:#fff;border:1px solid var(--line);padding:28px}
+.byline{font-size:.8rem;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.hero-caption{font-family:'Playfair Display',serif;font-size:2.15rem;font-weight:900;line-height:1.16;margin-bottom:12px}
+.hero-sub{font-size:1rem;color:var(--gray);line-height:1.85;margin-bottom:18px}
+.hero-card ul{padding-left:18px}.hero-card li{margin:10px 0;color:#4c4c4c;line-height:1.8}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-block;padding:14px 24px;font-size:.9rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:all .25s}
+.btn-dark{background:var(--dark);color:#fff}.btn-dark:hover{background:#2b2b2b}
+.btn-outline{border:1px solid var(--line);background:#fff;color:var(--ink)}.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.divider{max-width:1100px;margin:0 auto;border:0;border-top:1px solid var(--line);position:relative}.divider::after{content:'✦';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 12px;color:var(--accent)}
+.stats-bar{max-width:1100px;margin:0 auto;padding:42px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-item .num{font-family:'Playfair Display',serif;font-size:2.35rem;font-weight:900;color:var(--accent)}
+.stat-item .label{font-size:.8rem;color:var(--gray);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.stat-item .sub{font-size:.9rem;color:#555;line-height:1.6;margin-top:10px}
+.grid-section{max-width:1100px;margin:0 auto;padding:42px 24px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.grid-section.reverse{direction:rtl}.grid-section.reverse>*{direction:ltr}
+.article-img{width:100%;height:380px;object-fit:cover}
+.article-text h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;margin-bottom:14px;line-height:1.26}
+.article-text p{font-size:.98rem;line-height:1.86;color:#444;margin-bottom:12px}
+.article-text .highlight{font-family:'Playfair Display',serif;font-size:1.26rem;font-style:italic;color:var(--accent);border-left:3px solid var(--accent);padding-left:16px;margin:18px 0}
+.feature-list{list-style:none;padding:0;margin-top:14px}.feature-list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.96rem;color:#444}.feature-list li:last-child{border-bottom:none}
+.editorial-box{background:var(--soft);padding:28px;border-left:4px solid var(--accent)}
+.editorial-box h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:12px}.editorial-box p{color:#4c4c4c;line-height:1.85}
+.flow-row{max-width:1100px;margin:0 auto;padding:0 24px 42px;display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
+.flow-step{background:#fff;border:1px solid var(--line);padding:18px;text-align:center;position:relative;min-height:130px;display:flex;flex-direction:column;justify-content:center}
+.flow-step .n{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--accent);font-weight:900}.flow-step h3{font-size:.85rem;letter-spacing:1px;text-transform:uppercase;margin:6px 0 6px}.flow-step p{font-size:.86rem;color:#555;line-height:1.55}
+.role-grid{max-width:1100px;margin:0 auto;padding:0 24px 42px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.role-card{background:#fff;border:1px solid var(--line);padding:24px}.role-card .role{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--accent);font-weight:700;margin-bottom:8px}.role-card p{font-size:.95rem;color:#4d4d4d;line-height:1.75}.role-card ul{padding-left:18px;margin-top:10px}.role-card li{font-size:.92rem;color:#555;line-height:1.7;margin:6px 0}
+.table-wrap{max-width:1100px;margin:0 auto;padding:0 24px 42px}table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}th,td{padding:16px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);background:#fcfbf9}td{font-size:.95rem;color:#454545;line-height:1.75}
+.quote-band{max-width:1100px;margin:0 auto;padding:36px 24px;text-align:center}.quote-band .quote{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;line-height:1.35;max-width:920px;margin:0 auto;color:#1f1a16}.quote-band .sub{margin-top:12px;color:var(--gray);font-size:.98rem}
+.cta-section{background:var(--ink);color:var(--paper);padding:68px 24px;text-align:center;margin-top:20px}.cta-section h2{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:900;margin-bottom:10px}.cta-section p{color:#b9b3ad;margin-bottom:26px;font-size:.97rem;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.8}.cta-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.footer-ed{max-width:1100px;margin:0 auto;padding:24px;text-align:center;font-size:.78rem;color:var(--gray);border-top:1px solid var(--line)}
+@media(max-width:1000px){.hero-panel,.grid-section{grid-template-columns:1fr;gap:24px}.stats-bar{grid-template-columns:repeat(2,1fr)}.role-grid{grid-template-columns:repeat(2,1fr)}.flow-row{grid-template-columns:repeat(2,1fr)}.hero-image{height:320px}.hero-caption{font-size:1.7rem}}
+@media(max-width:640px){.masthead h1{font-size:1.5rem}.top-bar{gap:10px;padding:8px}.hero-ed,.grid-section,.stats-bar,.role-grid,.flow-row,.table-wrap,.quote-band{padding-left:16px;padding-right:16px}.role-grid,.flow-row,.stats-bar{grid-template-columns:1fr}.hero-actions,.cta-links{flex-direction:column}.btn{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span>Research</span><span>Hooks</span><span>Scripts</span><span>TikTok</span><span>Reels</span><span>Shorts</span><span>AI / OpenClaw</span><span>Funnel</span>
+</div>
+<header class="masthead">
+  <div class="date">Factory Blueprint · 2026</div>
+  <h1>SHORT VIDEO FACTORY BLUEPRINT</h1>
+  <div class="tagline">Một hệ thống để biến insight thị trường thành video ngắn hằng ngày, đa nền tảng, có khả năng kéo lead và tối ưu liên tục.</div>
+</header>
+<section class="hero-ed">
+  <div class="hero-panel">
+    <img class="hero-image" src="https://premia.vn/wp-content/uploads/2026/01/phoi-canh-hiep-phuoc-premia.jpg" alt="Short video factory blueprint">
+    <div class="hero-card">
+      <div class="byline">Content System</div>
+      <div class="hero-caption" style="font-size:1.8rem">Factory không phải là làm nhiều video. Factory là làm đúng video, đều video và tái sử dụng được video.</div>
+      <p class="hero-sub">Một short-video factory chuẩn sẽ biến một đầu vào thành nhiều đầu ra: một insight thành nhiều hooks, một buổi quay thành nhiều assets, một video thành nhiều phiên bản cho TikTok, Reels và Shorts.</p>
+      <ul>
+        <li><strong>Không tạo từng video từ số 0.</strong></li>
+        <li><strong>Không để editor thành nút cổ chai.</strong></li>
+        <li><strong>Không đăng random.</strong></li>
+        <li><strong>Mọi content đều phải có vai trò trong funnel.</strong></li>
+      </ul>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="#flow">Xem workflow</a>
+        <a class="btn btn-outline" href="#ai">Xem phần AI/OpenClaw</a>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+<section class="stats-bar">
+  <div class="stat-item"><div class="num">1 → 10</div><div class="label">Tái sử dụng</div><div class="sub">Một research packet hoặc một buổi quay phải sinh ra được nhiều video, không chỉ một asset.</div></div>
+  <div class="stat-item"><div class="num">8</div><div class="label">Công đoạn cốt lõi</div><div class="sub">Research → Angle → Script → Shoot → Edit → Package → Publish → Analyze.</div></div>
+  <div class="stat-item"><div class="num">#1</div><div class="label">Kênh ưu tiên</div><div class="sub">TikTok / Reels / Shorts phải đi đầu vì vừa reach tốt vừa tạo cảm giác thật.</div></div>
+  <div class="stat-item"><div class="num">24/7</div><div class="label">AI layer</div><div class="sub">AI/OpenClaw giúp chạy nghiên cứu, viết script, repurpose và theo dõi vận hành liên tục.</div></div>
+</section>
+<hr class="divider">
+<section class="hero-ed" id="flow" style="padding-top:42px">
+  <div class="byline">Workflow</div>
+  <h2 class="hero-caption" style="font-size:1.95rem;max-width:900px">Short Video Factory Workflow</h2>
+  <p class="hero-sub" style="max-width:900px">Nếu thiếu một mắt xích, output sẽ rơi. Factory chỉ chạy tốt khi mỗi bước có template, có role rõ và có đầu ra cụ thể.</p>
+</section>
+<section class="flow-row">
+  <div class="flow-step"><div class="n">01</div><h3>Research</h3><p>Thu thập insight, comments, objections, trends, competitors, FAQs.</p></div>
+  <div class="flow-step"><div class="n">02</div><h3>Angle</h3><p>Chọn góc đánh: hook nào, tệp nào, vấn đề nào, proof nào.</p></div>
+  <div class="flow-step"><div class="n">03</div><h3>Script</h3><p>Tạo kịch bản ngắn, 3–5 hook variants, CTA và shot list.</p></div>
+  <div class="flow-step"><div class="n">04</div><h3>Shoot</h3><p>Batch quay face-cam, B-roll, walkthrough, voice-over footage.</p></div>
+  <div class="flow-step"><div class="n">05</div><h3>Edit</h3><p>Dùng template subtitle, pacing, end-card, CTA để tăng tốc.</p></div>
+  <div class="flow-step"><div class="n">06</div><h3>Package</h3><p>Hook text, caption, topics, first comment, thumbnail frame.</p></div>
+  <div class="flow-step"><div class="n">07</div><h3>Publish</h3><p>Phân phối theo platform rule: TikTok, Reels, Shorts.</p></div>
+  <div class="flow-step"><div class="n">08</div><h3>Analyze</h3><p>Track retention, saves, shares, leads, appointments, winners.</p></div>
+</section>
+<hr class="divider">
+<section class="grid-section">
+  <div class="article-text">
+    <h2>Content factory chỉ mạnh khi có content buckets, không phải đăng random</h2>
+    <p>Hệ thống nên được chia thành các buckets cố định để idea không bị loãng và đội ngũ luôn biết mỗi video đang phục vụ mục đích gì trong funnel.</p>
+    <ul class="feature-list">
+      <li><strong>Hook / Curiosity</strong> — nội dung mở sự chú ý</li>
+      <li><strong>Education</strong> — nội dung giải thích, dạy, phân tích</li>
+      <li><strong>Review / On-ground</strong> — hiện trường, địa điểm, trải nghiệm thật</li>
+      <li><strong>Comparison</strong> — so sánh giá, khu vực, lựa chọn</li>
+      <li><strong>Objection Handling</strong> — gỡ phản đối, nỗi sợ, thắc mắc</li>
+      <li><strong>Social Proof</strong> — feedback, milestones, khách thật, tiến độ</li>
+      <li><strong>CTA / Conversion</strong> — kéo người xem sang hành động tiếp theo</li>
+    </ul>
+  </div>
+  <div class="editorial-box">
+    <h3>Quy tắc vàng</h3>
+    <p>Một factory tốt không chạy theo cảm hứng. Nó chạy theo hệ thống buckets, lịch xuất bản và feedback loop. Mỗi tuần biết mình đang thiếu bucket nào, hook nào thắng, bucket nào ra lead chất lượng nhất.</p>
+  </div>
+</section>
+<section class="grid-section reverse">
+  <img class="article-img" src="https://premia.vn/wp-content/uploads/2026/01/tien-ich-hiep-phuoc-premia.jpg" alt="Hook and script system">
+  <div class="article-text">
+    <h2>Hook & script system là trái tim của nhà máy</h2>
+    <p>Phần lớn video fail không phải vì thiếu editor, mà vì hook yếu và script không đủ nhịp. Một factory tốt phải có thư viện hook và cấu trúc script chuẩn.</p>
+    <div class="highlight">Hook → Vấn đề → Insight → Proof → CTA</div>
+    <p>Mỗi chủ đề nên có 3–5 hook variants. Cùng một nội dung, đổi hook là đổi performance. Đây là đòn tối ưu quan trọng nhất ở short video.</p>
+  </div>
+</section>
+<hr class="divider">
+<section class="hero-ed" style="padding-top:42px">
+  <div class="byline">Operating Model</div>
+  <h2 class="hero-caption" style="font-size:1.95rem;max-width:860px">Team structure tối thiểu để vận hành factory</h2>
+</section>
+<section class="role-grid">
+  <div class="role-card"><div class="role">Strategist</div><p>Người quyết định angle, bucket, calendar, ưu tiên, review performance.</p><ul><li>Chọn chủ đề</li><li>Phê duyệt scripts</li><li>Nhìn dữ liệu và ra quyết định</li></ul></div>
+  <div class="role-card"><div class="role">Research / AI</div><p>Lớp nghiên cứu & scripting. Có thể được tăng tốc mạnh bằng AI/OpenClaw.</p><ul><li>Scan trends</li><li>Rút insights</li><li>Tạo hooks & script drafts</li></ul></div>
+  <div class="role-card"><div class="role">Editor</div><p>Nút vận hành quan trọng nhất. Phải dùng template để không thành bottleneck.</p><ul><li>Subtitles</li><li>Pacing</li><li>End-card</li><li>Platform cuts</li></ul></div>
+  <div class="role-card"><div class="role">Publisher / Closer</div><p>Upload, comment handling, lead routing, kéo người xem sang Zalo/call/booking.</p><ul><li>Đăng tải</li><li>Reply comments</li><li>Route lead</li><li>Push CTA</li></ul></div>
+</section>
+<hr class="divider">
+<section class="grid-section" id="ai">
+  <img class="article-img" src="https://premia.vn/wp-content/uploads/2026/01/nha-pho-hiep-phuoc-premia.jpg" alt="AI OpenClaw layer">
+  <div class="article-text">
+    <h2>AI / OpenClaw là digital operating layer của factory</h2>
+    <p>AI không chỉ giúp viết caption. Nếu dùng đúng, AI/OpenClaw có thể thay thế một lượng lớn “thinking labor” và “ops labor” ở phía sau nhà máy nội dung.</p>
+    <ul class="feature-list">
+      <li><strong>Research:</strong> competitor scan, trend scan, FAQ clustering, objection mining</li>
+      <li><strong>Strategy:</strong> bucket planning, content calendar, angle prioritization</li>
+      <li><strong>Scripting:</strong> hooks, variants, rewrite by platform, CTA variations</li>
+      <li><strong>Repurposing:</strong> 1 long note → 10 short scripts, 1 video → many platform cuts</li>
+      <li><strong>Ops:</strong> maintain asset library, performance summary, next-step suggestions</li>
+    </ul>
+    <div class="highlight">AI/OpenClaw giúp factory phản ứng nhanh hơn thị trường, làm nhiều hơn trong ít thời gian hơn, và mở rộng mà không tăng người theo cùng tỷ lệ.</div>
+  </div>
+</section>
+<hr class="divider">
+<section class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Layer</th><th>Mục tiêu</th><th>Output</th><th>KPI</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Research Layer</strong></td><td>Tạo nguồn ý tưởng liên tục</td><td>20–50 raw ideas / tuần</td><td>Số idea chất lượng, số trends / objections được capture</td></tr>
+      <tr><td><strong>Strategy Layer</strong></td><td>Chọn đúng angle & bucket</td><td>10–20 approved ideas / tuần</td><td>Tỷ lệ idea được sản xuất, tốc độ ra brief</td></tr>
+      <tr><td><strong>Production Layer</strong></td><td>Batch shoot / asset creation</td><td>Footage bank + voiceover bank</td><td>Số assets usable / buổi quay</td></tr>
+      <tr><td><strong>Editing Layer</strong></td><td>Tạo phiên bản publishable nhanh</td><td>12–20 short videos / tuần</td><td>Turnaround time, % videos ra đúng lịch</td></tr>
+      <tr><td><strong>Distribution Layer</strong></td><td>Phủ đa nền tảng</td><td>TikTok + Reels + Shorts</td><td>Views, retention, saves, shares</td></tr>
+      <tr><td><strong>Conversion Layer</strong></td><td>Biến attention thành business</td><td>Zalo adds, calls, bookings, leads</td><td>Lead quality, CPL, appointments, closings</td></tr>
+    </tbody>
+  </table>
+</section>
+<hr class="divider">
+<section class="quote-band">
+  <div class="quote">“Nếu chỉ track views, bạn không có content factory. Bạn chỉ có giải trí. Factory thật phải track cả output, quality và business result.”</div>
+  <div class="sub">Production KPIs + Content KPIs + Business KPIs phải đi cùng nhau.</div>
+</section>
+<hr class="divider">
+<section class="grid-section">
+  <div class="article-text">
+    <h2>Lịch vận hành theo tuần</h2>
+    <p>Nhà máy chạy tốt nhất khi vận hành theo nhịp tuần, không phải theo hỗn loạn từng ngày.</p>
+    <ul class="feature-list">
+      <li><strong>Monday:</strong> research, topic mining, review performance tuần trước</li>
+      <li><strong>Tuesday:</strong> chọn angles, viết scripts, lên shot list</li>
+      <li><strong>Wednesday:</strong> batch shoot / gather footage</li>
+      <li><strong>Thursday:</strong> edit batch + create variants</li>
+      <li><strong>Friday:</strong> publish, comment handling, route leads</li>
+      <li><strong>Weekend:</strong> social proof, site content, lighter posting</li>
+    </ul>
+  </div>
+  <div class="editorial-box">
+    <h3>Asset libraries cần có</h3>
+    <p><strong>Idea library</strong>, <strong>Hook library</strong>, <strong>Script library</strong>, <strong>Footage library</strong>, <strong>Template library</strong>, và <strong>Performance library</strong>. Không có thư viện, factory không thể compound.</p>
+  </div>
+</section>
+<section class="cta-section">
+  <h2>Kết luận</h2>
+  <p>Một short-video factory tốt là một hệ thống biến insight thành output đều đặn, biến output thành attention, và biến attention thành conversion. AI/OpenClaw giúp rút ngắn thời gian nghiên cứu, viết script, repurpose và vận hành để factory chạy nhanh, gọn và khó sao chép hơn.</p>
+  <div class="cta-links">
+    <a href="./proposal.html" class="btn btn-dark">Xem proposal page</a>
+    <a href="./index.html" class="btn btn-outline">Xem landing page dự án</a>
+  </div>
+</section>
+<div class="footer-ed">
+  <p><strong>Short Video Factory Blueprint</strong> · Workflow · Team · AI / OpenClaw · KPI · Conversion</p>
+  <p style="margin-top:4px">© 2026 · Strategy blueprint page · <a href="https://paulvu.github.io/hiep-phuoc-premia/factory-blueprint.html">factory-blueprint.html</a></p>
+</div>
+</body>
+</html>
